@@ -1,11 +1,10 @@
 from flask import Flask, render_template,request, redirect, url_for
-from PyPDF2 import PdfReader
 import json
 import os
 
 app = Flask(__name__)
 
-with open('pdf_files.json') as f:
+with open('/home/biblos/site/pdf_files.json') as f:
     pdf_files = json.load(f)
 
 @app.route('/')
@@ -18,7 +17,7 @@ def sobre():
 
 # Rota para contribuir com um livro
 @app.route('/contribuir', methods=['GET'])
-def contribuir():   
+def contribuir():
     return render_template('contribuir.html', pdf_files=pdf_files)
 
 @app.route('/contribuir', methods=['POST'])
