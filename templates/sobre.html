@@ -1,0 +1,115 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+    
+    <style>
+        /* Estilos para o header da página */
+        header {
+            background-color: #1b1b1b;
+            padding: 20px;
+            color: white;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 48px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        /* Estilos para o conteúdo da página */
+        .container--sobre {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px;
+        }
+
+        .container--sobre p {
+            font-size: 18px;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        .container--sobre h2 {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .container--sobre ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+
+        .container--sobre li {
+            font-size: 18px;
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+
+        .container--sobre a {
+            color: #1b1b1b;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .container--sobre a:hover {
+            text-decoration: underline;
+        }
+
+        
+
+       
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container--sobre">
+            <h1>Biblioteca Online</h1>
+        </div>
+    </header>
+    <main>
+        <section>
+            <div class="container--sobre">
+                <h2>Biblioteca Colaborativa</h2>
+                <p>A Biblioteca Online é uma plataforma colaborativa, onde os usuários podem contribuir com o acervo de
+                    livros em PDF. Acreditamos que o compartilhamento de conhecimento é essencial para o desenvolvimento
+                    da sociedade e por isso criamos essa plataforma para ajudar a disseminar a informação de forma
+                    democrática.</p>
+            </div>
+        </section>
+        <section>
+            <div class="container--sobre">
+                <h2>Biblioteca exclusiva para membros do grupo "Ciências Humanas" do WhatsApp</h2>
+                <p>A Biblioteca Online foi criada especialmente para os membros do grupo "Ciências Humanas" do WhatsApp,
+                    mas qualquer pessoa pode ter acesso aos livros disponíveis na plataforma. O objetivo é fornecer um
+                    acervo completo de livros relacionados às áreas de ciências humanas, para que os usuários possam
+                    aprimorar seus estudos e pesquisas.</p>
+            </div>
+        </section>
+        <section>
+            <div class="container--sobre">
+                <h2>Contribuição de livros em PDF</h2>
+                <p>Qualquer pessoa pode contribuir com a Biblioteca Online, basta fazer upload de livros em PDF na
+                    plataforma. Os livros serão avaliados e, caso sejam relevantes para o acervo, serão disponibilizados
+                    para os usuários. Acreditamos que a colaboração é fundamental para manter a plataforma atualizada e
+                    oferecer um acervo cada vez mais completo.</p>
+            </div>
+        </section>
+        <section>
+            <div class="container--sobre">
+                <h2>Acesso à informação para todos</h2>
+                <p>A Biblioteca Online foi criada com muito carinho para melhorar o acesso à informação. Nosso objetivo
+                    é oferecer um acervo completo e de qualidade, para que qualquer pessoa possa ter acesso a livros
+                    relacionados às áreas de ciências humanas. Acreditamos que a informação é um direito de todos e por
+                    isso criamos essa plataforma para ajudar a disseminá-la.</p>
+            </div>
+        </section>
+    </main>
+    
+
+    {% endblock %}

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca Online - {% block title %}{% endblock %}</title>
+    <link rel="icon" type="image/jpg" href="{{ url_for('static', filename='img/favicon.jpg') }}">
+    <!-- Inclua aqui o CSS, JavaScript ou outras tags de cabeçalho -->
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css">
+    <style>
+        button#top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 50%;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button#top:hover {
+            background-color: #3e8e41;
+        }
+
+        .slick-carousel {
+            display: flex;
+            justify-content: space-around;
+            margin: 0 auto;
+            padding: 20px;
+            max-width: 1200px;
+            gap: 5px;
+        }
+
+        .slick-slide {
+            margin-left: 10px;
+        }
+
+        .card--shelf {
+            position: relative;
+            width: 350px;
+            height: 410px;
+            margin: 10px;
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease-in-out;
+            cursor: pointer;
+        }
+
+        .card--shelf:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .card--shelf img {
+            width: 100%;
+            height: 250px;
+            object-fit: contain;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+        }
+
+        .card--shelf h3 {
+            margin-top: 10px;
+            font-weight: bold;
+            text-align: center;
+            font-size: medium;
+            white-space: nowrap;
+            width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .card--shelf p {
+            margin-top: 5px;
+            font-size: 14px;
+            text-align: center;
+        }
+
+
+
+        .card--shelf a:hover {
+            background-color: #0062cc;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Roboto:300,400,500,700"
+        rel="stylesheet">
+    {% block head %}
+    <!-- Inclua aqui o CSS, JavaScript ou outras tags de cabeçalho -->
+    {% endblock %}
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+
+<body>
+    {% include 'components/nav.html' %}
+
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Biblioteca Online</p>
+            <button><a href="/">Voltar para a Biblioteca</a></button>
+            <button><a href="/contribuir">Contribuir com um livro</a></button>
+        </div>
+    </footer>
+    <button id="top" onclick="goToTop()">Top</button>
+    <script>
+        function goToTop() {
+            window.scrollTo(0, 0);
+        }
+    </script>
+
+
+    <!-- Dependências -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+
+    <script>
+        $('#preload').show();
+
+        $(".wellcome").slick({
+            dots: true,
+            arrows: true,
+            prevArrow: '<button class="slick-arrow slick-prev" aria-label="Previous" type="button"></button>',
+            nextArrow: '<button class="slick-arrow slick-next" aria-label="Next" type="button"></button>',
+            infinite: true,
+            speed: 300,
+            slidesToShow: 1,
+            adaptiveHeight: true
+        });
+        function loadData() {
+            const d = {{ pdf_files | tojson
+        }};
+        return { ...d }
+        }
+
+        function addPdfItem(title, id, folder, open, download, img) {
+            var colunaElem = $('<div id="' + id + '" class="col-lg-3 col-md-4 col-sm-6 mb-4 pdf-item" style="display:none;"></div>');
+            var card = $('<div class="card"></div>');
+            var cardBody = $('<div class="card-body"></div>');
+            var titleElem = $('<div class="pdf-title"></div>');
+            titleElem.text(title);
+            var folderElem = $('<div class="pdf-folder"></div>');
+            folderElem.text(folder);
+            var openElem = $('<a href="' + open + '" class="btn btn-success" target="_blank">Visualizar</a>');
+            var imgElem = $('<img class="img-fluid" src="' + img + '"></img>');
+            var download = $('<a href="' + download + '" class="btn btn-primary"  target="_blank">Download</a>');
+            cardBody.append(titleElem);
+            cardBody.append(imgElem);
+            cardBody.append(folderElem);
+            cardBody.append(download);
+            cardBody.append(openElem);
+            card.append(cardBody);
+            colunaElem.append(card);
+            $('#pdf-list').append(colunaElem);
+            $('#preload').show();
+        }
+
+
+        // Adiciona preloader
+
+
+        function loadPdfList() {
+            const pdf = loadData();
+            $('#pdf-list').empty();
+            let data = pdf;
+            $.each(data, function (title, file) {
+                addPdfItem(title, file.id, file.folder, file.webViewLink, file.webContentLink, file.thumbnailLink);
+            })
+
+            // Remove preloader depois de carregar os dados
+            $('#preload').hide();
+        }
+
+        $('#search-box').on('keyup', function () {
+            var filter = $(this).val().toLowerCase();
+            if (filter.length > 3) {
+                $('#pdf-list .pdf-item').each(function () {
+                    if ($(this).text().toLowerCase().indexOf(filter) > -1) {
+                        $(this).show();
+                    } else {
+                        $(this).hide();
+                    }
+                });
+            }
+            else{
+                $('#pdf-list .pdf-item').hide();
+            }
+        });
+
+        loadPdfList();
+
+    </script>
+    <script>
+        function renderShelf(termo, id) {
+            const info = {{ pdf_files | tojson
+        }};
+        const cards = [];
+
+        $.each(info, function (title, item) {
+            if (title.trim().toLowerCase().includes(termo.trim().toLowerCase())) {
+                cards.push(`
+                <div class="card--shelf">
+                    <img src="${item.thumbnailLink}" alt="${title}">
+                    <h3>${title}</h3>
+                    <p>${item.folder}</p>
+                    <div style="display:flex;justify-content:space-around">
+                        <a class="btn btn-primary" href="${item.webContentLink}" target="_blank">Download</a>
+                        <a class="btn btn-success" href="${item.webViewLink}" target="_blank">Visualizar</a>
+                    </div>
+                </div>
+            `);
+            }
+        });
+
+        $(id).append(cards.join(''));
+        $(id).parent().prepend(`<div style="text-align:center;"><h1>Coleção ${termo}</h1><div>`);
+
+        // Inicie o carrossel
+        $(id).slick({
+            dots: true,
+            infinite: true,
+            speed: 300,
+            slidesToShow: 4,
+            slidesToScroll: 4,
+            responsive: [
+                {
+                    breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 3,
+                        infinite: true,
+                        dots: true
+                    }
+                },
+                {
+                    breakpoint: 600,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 2
+                    }
+                },
+                {
+                    breakpoint: 480,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
+                }
+            ]
+        });
+    }
+
+        renderShelf('Os Pensadores', '.slick-carousel')
+        renderShelf('90 Minutos', '.slick-carousel-2')
+        renderShelf('Voltaire', '.slick-carousel-3')
+        renderShelf('Python', '.slick-carousel-custom')
+        renderShelf('Freud', '.slick-carousel-custom-2')
+
+        window.addEventListener("load", (event) => {
+            console.log('DOM fully loaded and parsed');
+            setTimeout(() => {
+                $('#preload').hide();
+            }, 3000);
+
+        });
+    </script>
+</body>
+
+</html>

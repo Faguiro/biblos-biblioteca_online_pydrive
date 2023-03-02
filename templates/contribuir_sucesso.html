@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Arquivo enviado com sucesso!</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body {
+    background-color: #f2f2f2;
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    text-align: center;
+    color: #1a1a1a;
+}
+
+p {
+    color: #4d4d4d;
+    font-size: 18px;
+    line-height: 1.5;
+    margin: 10px 0;
+    padding: 0 20px;
+    text-align: justify;
+}
+
+    </style>
+</head>
+<body>
+    <h1>Arquivo enviado com sucesso!</h1>
+    <p>O arquivo "{{ titulo }}" foi enviado com sucesso.</p>    
+    <p>O arquivo será analisado e posteriormente agregado à coleção do site.</p>
+    <p>Obrigado pelo envio!</p><br />
+    <p>Voce será direcionado para a página principal...</p>
+    <script>
+        setTimeout(function() {
+            window.location.href = "{{ url_for('index') }}";
+        }, 5000); // redireciona para a home após 5 segundos
+    </script>
+</body>
+</html>

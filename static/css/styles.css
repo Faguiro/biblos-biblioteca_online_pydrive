@@ -1,0 +1,291 @@
+body {
+    background-color: #f7f7f7;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #0b3954;
+}
+
+a {
+    color: #ffcd00;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #d4af37;
+    text-decoration: none;
+}
+
+.card-body {
+    display: grid;
+    justify-content: center;
+    gap: 10px;
+    text-align: center;
+}
+
+.card {
+    border: none;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.card:hover {
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+}
+
+.pdf-icon {
+    color: #0b3954;
+    font-size: 3rem;
+}
+
+.btn-pdf {
+    background-color: #0b3954;
+    border: none;
+}
+
+.btn-pdf:hover {
+    background-color: #d4af37;
+    border: none;
+}
+
+.modal-header,
+.modal-footer {
+    background-color: #0b3954;
+    color: #fff;
+}
+
+.modal-title {
+    color: #ffcd00;
+}
+
+.img-fluid {
+
+    margin: auto;
+}
+
+.pdf-title {
+    font-size: medium;
+    white-space: nowrap;
+    width: 100%;
+    overflow: hidden;
+    /* "overflow" value must be different from "visible" */
+    text-overflow: ellipsis;
+}
+
+/* Estilos para o rodapé da página */
+footer {
+    background-color: #1b1b1b;
+    padding: 20px;
+    color: white;
+    text-align: center;
+    margin-top: 30px;
+}
+
+footer p {
+    margin: 0;
+    font-size: 16px;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+}
+
+footer button {
+    color: white;
+    text-decoration: none;
+    background-color: #1b1b1b;
+    margin: 10px 0;
+}
+
+footer a:hover {
+    text-decoration: none;
+}
+
+/* .wellcome {
+    background-image: url('../img/fundo.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 500px;
+}
+
+.wellcome--slide {
+    text-align: center;
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 50px 0;
+}
+ */
+.wellcome--slide p {
+    margin: 0 auto;
+    max-width: 75vw;
+}
+.wellcome--slide h2 {
+    margin: 10px auto;
+    text-align: center;
+
+}
+
+/* Estilização dos dots */
+.slick-dots {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.slick-dots li button {
+    background-color: #bbb;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    border: none;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.slick-dots li button:hover {
+    background-color: #555;
+}
+
+/* Estilização dos botões de seta */
+.slick-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: block;
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.slick-arrow:focus {
+    outline: none;
+}
+
+.slick-prev {
+    left: 20px;
+}
+
+.slick-next {
+    right: 20px;
+}
+
+.slick-arrow:before {
+    font-family: "slick";
+    font-size: 40px;
+    line-height: 1;
+    color: #000;
+    opacity: 0.75;
+}
+
+.slick-prev:before {
+    content: "←";
+}
+
+.slick-next:before {
+    content: "→";
+}
+
+.container.my-3 {
+    margin-bottom: 1rem;
+    margin-top: 3rem;
+    padding: 30px;
+    border: 2px solid #dddd;
+    border-radius: 20px;
+    background-color: #cccccc14;
+}
+
+.shelf {
+    margin-bottom: 1rem;
+    margin-top: 3rem;
+    padding: 30px;
+    border: 2px solid #dddd;
+    border-radius: 20px;
+    background-color: #cccccc14;
+}
+
+
+.slick-dots li button{
+    height:20px;
+    width:20px;
+}
+
+.slick-dots li button:before
+{
+    font-family: 'slick';
+    font-size: 22px;
+    line-height: 20px;
+
+    position: absolute;
+    top: 1.5px;
+    left: 5px;
+
+    width: 20px;
+    height: 20px;
+
+    content: '•';
+    text-align: center;
+
+    opacity: .25;
+    color: black;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.slick-dots li.slick-active button:before
+{
+    opacity: .75;
+    color: #0062cc;
+}
+
+.wellcome.slider {
+    background-image: url('../img/fundo.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-bottom: 82px;
+    margin-top: 30px;
+    height: 360px;
+    border-radius: 20px;
+}
+
+#preload {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #f1f1f1;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .loading-spinner {
+    border: 16px solid #f3f3f3;
+    border-top: 16px solid #3498db;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  

@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% block content %}
+   <title>{% block title %}Contribuir com livro{% endblock %}</title>
+    
+
+    {% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/contribuir.css') }}">
+    {% endblock %}
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.7.570/pdf.min.js"></script>
+    <script>
+        function mostrarMetadadosArquivo() {
+
+            var bt_analise = document.getElementById('analise');
+            bt_analise.style.display = "none";
+            var arquivoInput = document.getElementById('arquivo');
+            var arquivo = arquivoInput.files[0];
+            if (arquivo) {
+                var leitor = new FileReader();
+                leitor.onload = function() {
+                    var dados = new Uint8Array(this.result);
+                    var pdf = pdfjsLib.getDocument(dados);
+                    pdf.promise.then(function(pdfDoc) {
+                        pdfDoc.getMetadata().then(function(metaData) {
+                            var nome = metaData.info.Title || arquivo.name;
+                            var autor = metaData.info.Author || "Desconhecido";
+                            var conteudo = "<p><strong>Nome do livro:</strong> " + nome + "</p>";
+                            conteudo += "<p><strong>Autor:</strong> " + autor + "</p>";
+                            var divMetadados = document.getElementById('metadados');
+                            divMetadados.style.display = "block";
+                            divMetadados.innerHTML = conteudo;
+                            var form = document.getElementById('form-contribuir');
+                            var nomeInput = document.createElement('input');
+                            nomeInput.type = 'hidden';
+                            nomeInput.name = 'nome';
+                            nomeInput.value = nome;
+                            form.appendChild(nomeInput);
+                            var autorInput = document.createElement('input');
+                            autorInput.type = 'hidden';
+                            autorInput.name = 'autor';
+                            autorInput.value = autor;
+                            form.appendChild(autorInput);
+                            var submitButton = document.createElement('input');
+                            submitButton.type = 'submit';
+                            submitButton.value = 'Upload';
+                            submitButton.className = 'submit-button';
+                            submitButton.onclick = function() {
+                                form.submit();
+                            };
+                            form.appendChild(submitButton);
+                        });
+                    });
+                };
+                leitor.readAsArrayBuffer(arquivo);
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Contribuir com livro</h1>
+    <form id="form-contribuir" action="{{ url_for('contribuir_post') }}" method="post" enctype="multipart/form-data">
+        <div>
+            <label for="arquivo">Arquivo em PDF:</label>
+            <input type="file" id="arquivo" name="arquivo" accept=".pdf" required>
+        </div>
+        <div>
+            <input type="button" id="analise" class="btn btn-warning" value="Enviar para análise" onclick="mostrarMetadadosArquivo()">
+        </div>
+        <div id="metadados" style="display: none;"></div>
+    </form>
+    
+    {% endblock %}

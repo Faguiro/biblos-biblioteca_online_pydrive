@@ -1,0 +1,141 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="wellcome slider">
+    <div class="wellcome--slide" style="padding:30px">
+        <h2>Bem-vindo à Biblioteca Online do Grupo de Ciências Humanas!</h2>
+        <p>Aqui você encontrará uma vasta coleção de livros, artigos e documentos nas áreas de antropologia, sociologia,
+            história, psicologia, entre outras.
+            Nossa missão é democratizar o acesso à informação e promover a difusão do conhecimento em ciências humanas.
+            <br /> Explore nossa coleção e enriqueça seu conhecimento!
+            Não perca esta oportunidade única de ter acesso a documentos exclusivos para aprimorar seus estudos e
+            expandir seus conhecimentos em Ciências Humanas. Então, junte-se ao nosso grupo e convide seus amigos para
+            fazer parte da comunidade!
+            <br /> Nosso objetivo é promover o acesso ao conhecimento e à cultura, tornando disponível para todos
+            materiais de
+            qualidade que não são mais protegidos por leis de direitos autorais. Dessa forma, buscamos contribuir para a
+            democratização do conhecimento e da educação
+        </p>
+    </div>
+    <div style="padding:30px" class="wellcome--slide">
+        <h2>Exclusivo para membros do grupo de Ciências Humanas: Aproveite nossos documentos selecionados!</h2>
+        <p>Se você é um membro do nosso grupo de Ciências Humanas, você tem acesso exclusivo a uma ampla variedade de
+            documentos selecionados cuidadosamente para aprimorar seus estudos. Esses documentos incluem livros,
+            artigos, pesquisas e muito mais, que são atualizados regularmente para fornecer o melhor conteúdo possível.
+            <br />
+            No entanto, lembre-se que o acesso a esses documentos é exclusivo para membros do grupo de Ciências Humanas.
+            Mas você pode convidar um amigo para se juntar ao grupo e expandir a comunidade! Com mais membros, poderemos
+            compartilhar ainda mais informações relevantes e úteis.
+        </p>
+    </div>
+    <div style="padding:30px" class="wellcome--slide">
+        <h2>Aproveite nossas seleções escolhidas especialmente para estudantes e pesquisadores!</h2>
+        <p>"Para ajudar na sua jornada acadêmica, nós selecionamos cuidadosamente uma variedade de documentos que podem
+            ser úteis em seus estudos. Nossa equipe se esforçou para organizar esses materiais de forma clara e
+            acessível, para que você possa facilmente encontrar o que precisa.
+            <br />
+            As seleções incluem livros, artigos, resumos e muito mais, abrangendo diversas áreas de estudo, como
+            filosofia, matemática, literatura, ciências sociais e muito mais. Cada documento foi escolhido por sua
+            qualidade e relevância para os estudantes universitários.
+            <br />
+            Então, se você está procurando materiais de referência para um trabalho acadêmico ou simplesmente quer
+            expandir seus conhecimentos em um determinado assunto, confira nossas seleções especiais e aproveite ao
+            máximo seus estudos universitários!"</p>
+    </div>
+</div>
+
+<div class="container my-3">
+    <div class="form-group">
+        <input type="text" id="search-box" class="form-control search-bar" placeholder="Pesquisar um livro...">
+        <small class="search-text">Encontre o livro que você procura</small>
+    </div>
+</div>
+<style>
+    .search-bar {
+        border-radius: 20px;
+        border-color: #6c757d;
+        font-size: 18px;
+        font-weight: 400;
+        color: #343a40;
+        padding: 15px;
+        transition: border-color 0.2s ease-in-out;
+    }
+
+    .search-bar:focus {
+        outline: none;
+        border-color: #007bff;
+        box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    }
+
+    .search-text {
+        color: #6c757d;
+        font-size: 12px;
+    }
+</style>
+
+
+
+<div class="container">
+    <div class="row" id='pdf-list'>
+    </div>
+</div>
+
+
+
+<div class="shelf">
+    <p>"Os Pensadores" é uma coleção de livros que reúne obras de grandes filósofos da história.
+        Com mais de 100 títulos, a coleção tem como objetivo democratizar o acesso à filosofia e
+        incentivar o debate sobre ideias e valores. Os livros são cuidadosamente apresentados e
+        traduzidos por especialistas renomados da área. A coleção é uma referência importante
+        para estudantes e pesquisadores da filosofia em língua portuguesa.</p>
+    <div class="slick-carousel"></div>
+</div>
+<div class="shelf">
+    <p>"Os Pensadores" é uma coleção de livros que reúne obras de grandes filósofos da história.
+        Com mais de 100 títulos, a coleção tem como objetivo democratizar o acesso à filosofia e
+        incentivar o debate sobre ideias e valores. Os livros são cuidadosamente apresentados e
+        traduzidos por especialistas renomados da área. A coleção é uma referência importante
+        para estudantes e pesquisadores da filosofia em língua portuguesa.</p>
+    <div class="slick-carousel-custom"></div>
+</div>
+<div class="shelf">
+    <p>"Os Pensadores" é uma coleção de livros que reúne obras de grandes filósofos da história.
+        Com mais de 100 títulos, a coleção tem como objetivo democratizar o acesso à filosofia e
+        incentivar o debate sobre ideias e valores. Os livros são cuidadosamente apresentados e
+        traduzidos por especialistas renomados da área. A coleção é uma referência importante
+        para estudantes e pesquisadores da filosofia em língua portuguesa.</p>
+    <div class="slick-carousel-custom-2"></div>
+</div>
+
+<div class="shelf">
+    <p>A Coleção 90 minutos, escrita por Paul Strathern, conta com cerca de 34 volumes, marcados por um texto
+        bastante claro e conciso sobre a vida e o pensamento de grandes nomes da filosofia, representantes
+        de diversas escolas e períodos: Aristóteles, Sartre, Platão, Foucault, Hegel, Arquimedes,e muitos outros...</p>
+    <div class="slick-carousel-2"></div>
+</div>
+<div class="shelf">
+    <p>Os livros de Paulo Coelho são conhecidos por explorar temas como espiritualidade, autoconhecimento, amor e
+        destino. O autor brasileiro, que já vendeu mais de 225 milhões de cópias em todo o mundo, possui uma escrita
+        poética e simples, que consegue tocar o coração dos leitores.
+        Muitos de seus livros são inspirados em suas próprias experiências de vida e suas reflexões sobre o sentido da
+        existência humana. Dentre suas obras mais conhecidas, estão "O Alquimista", "Brida", "Veronika Decide Morrer" e
+        "Onze Minutos".
+        Além de seus livros, Paulo Coelho é também um grande influenciador digital, compartilhando pensamentos
+        inspiradores em suas redes sociais e incentivando a busca por uma vida mais significativa. Suas obras têm sido
+        traduzidas para mais de 80 idiomas e são lidas por pessoas de diferentes culturas e crenças em todo o mundo.</p>
+    <div class="slick-carousel-3"></div>
+</div>
+
+
+<div id="preload">
+    <div class="loading-spinner"></div>
+    <p>Carregando...</p>
+  </div>
+
+
+<!-- Scripts jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- Scripts personalizados -->
+
+{% endblock %}
