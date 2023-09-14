@@ -22,6 +22,7 @@ bots/
 
 *.db
 dados.db
+*.js
 # Coverage reports
 htmlcov/
 .coverage
