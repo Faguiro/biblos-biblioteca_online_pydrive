@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Usuários com Maior Permanência</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <h1>Usuários com Maior Permanência</h1>
+    <div id="grafico"></div>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Endereço IP</th>
+            <th>Maior Permanência</th>
+        </tr>
+        {% for usuario in usuarios %}
+            <tr>
+                <td>{{ usuario[0] }}</td>
+                <td>{{ usuario[1] }}</td>
+                <td>{{ usuario[2] }}</td>
+                <td>{{ usuario[3] }}</td>
+                <td>{{ usuario[4] }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    <script>
+        var usuarios = {{ usuarios | tojson }};
+        var ip = usuarios.map(function(usuario) {
+            return usuario[3];
+        });
+        var tempoPermanencia = usuarios.map(function(usuario) {
+            return usuario[4];
+        });
+
+        var data = [{
+            x: ip,
+            y: tempoPermanencia,
+            type: 'bar'
+        }];
+
+        var layout = {
+            title: 'Maior Permanência por Usuário (IP)',
+            xaxis: {
+                title: 'Endereço IP'
+            },
+            yaxis: {
+                title: 'Maior Permanência'
+            }
+        };
+
+        Plotly.newPlot('grafico', data, layout);
+    </script>
+</body>
+</html>

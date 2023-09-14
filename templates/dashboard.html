@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}"> -->
+    <style>
+        /* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin: 0 10px;
+    transition: background-color 0.3s;
+}
+
+.menu a:hover {
+    background-color: #0056b3;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Bem-vindo ao Painel de Administração</h1>
+        <div class="menu">
+            <a href="{{ url_for('mostrar_dados') }}">Mostrar Dados</a>
+            <a href="{{ url_for('usuarios_mais_tempo') }}">Usuários com Maior Permanência</a>
+            <a href="{{ url_for('quantidade_acessos') }}">Quantidade de Acessos</a>
+            <a href="{{ url_for('quantidade_acessos_por_usuario') }}">Quantidade de Acessos por Usuário</a>
+        </div>
+    </div>
+</body>
+</html>

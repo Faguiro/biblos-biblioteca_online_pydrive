@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tabela de Dados</title>
+</head>
+<body>
+    <h1>Tabela de Dados</h1>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <!-- Adicione outras colunas conforme necessário -->
+        </tr>
+        {% for registro in registros %}
+            <tr>
+                {% for coluna in registro %}
+                    <td>{{ coluna }}</td>
+                {% endfor %}
+            
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
