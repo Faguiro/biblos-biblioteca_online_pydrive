@@ -375,4 +375,8 @@ footer a:hover {
             .hide_mobile{
                 display: none;
             }
+            .wellcome.slider {
+                background-color: whitesmoke;
+                color: black;
+            }
           }
