@@ -274,18 +274,96 @@ footer a:hover {
     justify-content: center;
     align-items: center;
   }
-  
+
   .loading-spinner {
     border: 16px solid #f3f3f3;
     border-top: 16px solid #3498db;
     border-radius: 50%;
     width: 120px;
     height: 120px;
-    animation: spin 2s linear infinite;
+    animation: spin 5s linear infinite;
   }
-  
+
   @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
   }
-  
+  button#top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 50%;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button#top:hover {
+            background-color: #3e8e41;
+        }
+
+        .slick-carousel {
+            display: flex;
+            justify-content: space-around;
+            margin: 0 auto;
+            padding: 20px;
+            max-width: 1200px;
+            gap: 5px;
+        }
+
+        .slick-slide {
+            margin-left: 10px;
+        }
+
+        .card--shelf {
+            position: relative;
+            width: 350px;
+            height: 410px;
+            margin: 10px;
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease-in-out;
+            cursor: pointer;
+        }
+
+        .card--shelf:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .card--shelf img {
+            width: 100%;
+            height: 250px;
+            object-fit: contain;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+        }
+
+        .card--shelf h3 {
+            margin-top: 10px;
+            font-weight: bold;
+            text-align: center;
+            font-size: medium;
+            white-space: nowrap;
+            width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .card--shelf p {
+            margin-top: 5px;
+            font-size: 14px;
+            text-align: center;
+        }
+
+
+
+        .card--shelf a:hover {
+            background-color: #0062cc;
+        }

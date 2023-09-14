@@ -1,5 +1,7 @@
 .DS_Store
 .env
+.db
+dados.db
 .flaskenv
 *.pyc
 *.pyo

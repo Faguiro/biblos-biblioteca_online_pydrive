@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quantidade de Acessos</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <h1>Quantidade de Acessos por IP e Data</h1>
+    <div id="grafico"></div>
+    <script>
+        var dados = {{ dados | tojson }};
+        var datas = [];
+        var ips = [];
+        var quantidades = [];
+
+        dados.forEach(function(dado) {
+            datas.push(dado[0]);
+            ips.push(dado[1]);
+            quantidades.push(dado[2]);
+        });
+
+        var trace = {
+            x: datas,
+            y: quantidades,
+            mode: 'markers+lines',
+            type: 'bar',
+            marker: {
+                size: 8
+            }
+        };
+
+        var data = [trace];
+
+        var layout = {
+            title: 'Quantidade de Acessos por Data',
+            xaxis: {
+                title: 'Data'
+            },
+            yaxis: {
+                title: 'Quantidade de Acessos'
+            }
+        };
+
+        Plotly.newPlot('grafico', data, layout);
+    </script>
+</body>
+</html>
