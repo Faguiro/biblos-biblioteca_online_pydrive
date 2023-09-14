@@ -20,7 +20,8 @@ docs/_build/
 bots/
 .bots/
 
-
+.db
+dados.db
 # Coverage reports
 htmlcov/
 .coverage
