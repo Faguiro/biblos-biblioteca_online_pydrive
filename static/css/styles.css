@@ -25,6 +25,8 @@ a:hover {
     text-decoration: none;
 }
 
+
+
 .card-body {
     display: grid;
     justify-content: center;
@@ -176,19 +178,19 @@ footer a:hover {
 }
 
 .slick-prev {
-    left: 20px;
+    left: 10px;
 }
 
 .slick-next {
-    right: 20px;
+    right: 10px;
 }
 
 .slick-arrow:before {
     font-family: "slick";
     font-size: 40px;
     line-height: 1;
-    color: #000;
-    opacity: 0.75;
+    color: #201f6053;
+    opacity: 0.55;
 }
 
 .slick-prev:before {
@@ -367,3 +369,10 @@ footer a:hover {
         .card--shelf a:hover {
             background-color: #0062cc;
         }
+
+
+        @media only screen and (max-width: 1048px) {
+            .hide_mobile{
+                display: none;
+            }
+          }

@@ -8,16 +8,22 @@ app = Flask(__name__)
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
-with open('/home/biblos/site/pdf_files.json') as f:
-    pdf_files = json.load(f)
+try:
+    with open('/home/biblos/site/pdf_files.json') as f:
+        pdf_files = json.load(f)
+except:
+    with open(basedir+'/pdf_files.json') as f:
+        pdf_files = json.load(f)
+
 
 @app.route('/')
 def index():
     user_agent = request.headers.get('User-Agent')
-    if 'Mobile' in user_agent:
+    return render_template('index.html', pdf_files=pdf_files)
+"""     if 'Mobile' in user_agent:
         return render_template('construction.html')
     else:
-        return render_template('index.html', pdf_files=pdf_files)
+        return render_template('index.html', pdf_files=pdf_files) """
 
 @app.route('/sobre')
 def sobre():
