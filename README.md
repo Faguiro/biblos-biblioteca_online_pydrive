@@ -1,19 +1,47 @@
-# biblos-biblioteca_online_pydrive
-https://github.com/Faguiro/biblos-biblioteca_online_pydrive
+Biblos - Biblioteca Online Colaborativa
+Uma plataforma para grupos compartilharem conhecimento via PDF
 
-## Biblioteca Colaborativa
-A Biblioteca Online é uma plataforma colaborativa, onde os usuários podem contribuir com o acervo de livros em PDF. Acreditamos que o compartilhamento de conhecimento é essencial para o desenvolvimento da sociedade e por isso criei essa plataforma para ajudar a disseminar a informação de forma democrática.
+📚 Para estudantes, grupos de estudo, wikis e comunidades
+O Biblos é um espaço colaborativo onde grupos podem:
 
-Este projeto foi desenvolvido para disponibilizar eficientemente livros em PDF usando como repositório o Google Drive. Com ele é possível ler, baixar e contribuir com livros.
-Você pode conferir este projeto em funcionamento aqui: https://biblos.pythonanywhere.com/
+Criar bibliotecas compartilhadas de materiais em PDF
 
-Se achar útil ou interessante me dê uma estrela aqui no Github.
+Organizar conteúdos por temas, disciplinas ou projetos
 
-***********************************************
+Facilitar o acesso democrático ao conhecimento
 
-## Collaborative Library
-The Online Library is a collaborative platform where users can contribute to the PDF book collection. We believe that sharing knowledge is essential for the development of society and that is why i created this platform to help disseminate information in a democratic way.
+🌐 Como funciona
 
-This project was developed to efficiently make PDF books available using Google Drive as a repository. With it you can read, download and contribute books. You can check out this project in action here: https://biblos.pythonanywhere.com/
+Usa o Google Drive como repositório seguro
 
-If you find it useful or interesting, give me a star here on Github.
+Permite leitura online e download organizado
+
+Sistema de contribuição aberta ou moderada
+
+🔗 Experimente: https://biblos.pythonanywhere.com/
+
+⭐ Apoie o projeto: Dê uma estrela no GitHub se achar útil!
+
+Biblos - Collaborative Online Library
+A platform for groups to share knowledge via PDF
+
+📚 For students, study groups, wikis and communities
+Biblos is a collaborative space where groups can:
+
+Create shared PDF libraries
+
+Organize content by topics or projects
+
+Provide democratic access to knowledge
+
+🌐 How it works
+
+Uses Google Drive as secure storage
+
+Allows online reading and organized downloads
+
+Open or moderated contribution system
+
+🔗 Try it: https://biblos.pythonanywhere.com/
+
+⭐ Support the project: Give it a star on GitHub if you find it useful!
